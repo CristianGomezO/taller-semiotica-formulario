@@ -28,7 +28,15 @@ $(document).ready(() => {
         const name = `Estudiante ${Math.round(Math.random() * 10 + 1)}`,
             day = Math.round(Math.random() * 30 + 1),
             month = Math.round(Math.random() * 12 + 1),
-            year = Math.round(Math.random() * (2010 - 1980 + 1) + 1980);
+            personOptionsSelect = $('#personOptions').find(":selected").val();
+        
+        let maxYear = 2006, minYear = 2024;
+        if (personOptionsSelect == "adult") {
+            maxYear = 2006;
+            minYear = 1980;
+        }
+            
+        const year = Math.round(Math.random() * (maxYear - minYear + 1) + minYear);
 
         $('#name').val(name);
         $('#day').val(day);
